@@ -1,6 +1,10 @@
-######--- Linear extrapolation map ---######
+#------------------------------------------------------------------------------------------------------------------#
+# This julia file allows to linearly extrapolate the return probabilities used in https://arxiv.org/abs/2304.13058 #
+#------------------------------------------------------------------------------------------------------------------#
 
-# Extrapolation of single configuration
+#----------------------------------------------
+
+### Extrapolation of single configuration
 
 function lin_ext(log_taus::Vector{Float64}, log_probs::Vector{Float64}, steps::Int64, epsilon::Float64)
 
@@ -39,7 +43,9 @@ function lin_ext(log_taus::Vector{Float64}, log_probs::Vector{Float64}, steps::I
     end
 end
 
-# Extrapolation of vectorized return probability #
+#----------------------------------------------
+
+### Extrapolation of vectorized return probability #
 
 function etp(rp_vec::Array{Float64, 2}, tau_range::Vector{Float64}, steps::Int64, epsilon::Float64)
 

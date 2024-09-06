@@ -1,3 +1,7 @@
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# This julia file contains the functions to compute the dressed quantum vertex amplitude from given data and to compute corresponding expectation values, all being used in https://arxiv.org/abs/2304.13058 #
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+
 using LinearAlgebra, SparseArrays, CSV, DataFrames
 
 #include("/home/jercheal/Documents/Physics/Codes/Spectral Dimension/basic_frusta.jl")

@@ -1,3 +1,11 @@
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# This julia file contains the basic definitions for the semi-classical amplitudes of the 4-dimensional EPRL frusta model used in https://arxiv.org/abs/2304.13058 #
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+
+#----------------------------------------------
+
+### Hessian determinant
+
 function cosphi(j1::Float64,j2::Float64,j3::Float64)
 
     res = (j2-j1)/(4*j3)
@@ -31,11 +39,9 @@ function D(j1::Float64,j2::Float64,j3::Float64)
     res
 end
 
-
 #----------------------------------------------
 
-
-### VOLUME AND HEIGHT OF HYPERFRUSTUM
+### Primary 4-, 3- and 2-volumes
 
 function vol_frusta(jin::Float64,jfin::Float64,k::Float64)
 
@@ -47,7 +53,6 @@ function vol_frusta(jin::Float64,jfin::Float64,k::Float64)
 
 end
 
-
 function height_frusta(jin::Float64,jfin::Float64,k::Float64)
 
     res = (2*k)/(sqrt(jfin) + sqrt(jin)) * sqrt(complex(1 - (jfin - jin)^2 / (8 * k^2)))
@@ -58,7 +63,7 @@ function height_frusta(jin::Float64,jfin::Float64,k::Float64)
 
 end
 
-### sideface gives the spin of the side face as a function of top, bottom spins and height of hyperfrustum
+#sideface gives the spin of the side face as a function of top, bottom spins and height of hyperfrustum
 
 function sideface(jin::Float64,jfin::Float64,H::Float64)
 
@@ -78,8 +83,6 @@ function vol_3d_cube(j::Float64)
 
 end
 
-#### 3-volume of frustum
-
 function vol_3d_frusta(jin::Float64,jfin::Float64,k::Float64)
 
     res = 1/3. * sqrt( complex((2 * k / (sqrt(jin) + sqrt(jfin)))^2 - ( 1/2 * (sqrt(jin) - sqrt(jfin)) )^2 )) *
@@ -89,10 +92,9 @@ function vol_3d_frusta(jin::Float64,jfin::Float64,k::Float64)
 
 end
 
+#----------------------------------------------
 
 #### Dual lengths
-
-# Dual length: spatial
 
 function dual_len_sp(jin::Float64,jfin::Float64,k::Float64)
 
@@ -130,8 +132,6 @@ function dual_len_sp_corr(jin::Float64,jfin::Float64,k::Float64)
 
 end
 
-# Dual length temporal (just the average of heights in slices n and n+1)
-
 function dual_len_t(jin::Float64,jmid::Float64,jfin::Float64,k1::Float64,k2::Float64)
 
     res = 1/2. * (height_frusta(jin,jmid,k1) + height_frusta(jmid,jfin,k2))
@@ -140,11 +140,9 @@ function dual_len_t(jin::Float64,jmid::Float64,jfin::Float64,k1::Float64,k2::Flo
 
 end
 
-
 #----------------------------------------------
 
-
-### REGGE ACTION AND CRITICAL ANGLE θ
+### Regge action
 
 function costheta(j1::Float64,j2::Float64,j3::Float64)
 
@@ -166,15 +164,9 @@ function SRegge(j1::Float64,j2::Float64,j3::Float64)
 
 end
 
-
-
-
 #----------------------------------------------
 
-
-
-
-### VERTEX, EDGE AND FACE AMPLITUDES
+### Vertex, edge and face amplitudes
 
 function VAmp(G::Float64,γ::Float64,Lambda::Float64,j1::Float64,j2::Float64,j3::Float64)
 
@@ -196,8 +188,6 @@ function VAmp(G::Float64,γ::Float64,Lambda::Float64,j1::Float64,j2::Float64,j3:
 
 end
 
-
-
 function EAmp(γ::Float64,j1::Float64,j2::Float64,j3::Float64)
 
     phi = acos((j2-j1)/ (4*j3))
@@ -214,8 +204,6 @@ function EAmp(γ::Float64,j1::Float64,j2::Float64,j3::Float64)
 
 end
 
-
-
 function FAmp(alpha::Float64,γ::Float64,j::Float64)
 
     #res = (j^2*(1-γ^2))^α
@@ -226,6 +214,8 @@ function FAmp(alpha::Float64,γ::Float64,j::Float64)
     res
 
 end
+
+#----------------------------------------------
 
 ### Semiclassical SU2-amplitudes
 

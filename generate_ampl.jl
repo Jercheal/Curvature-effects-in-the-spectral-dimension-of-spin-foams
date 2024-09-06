@@ -1,5 +1,9 @@
+#-----------------------------------------------------------------------------------------------------------------------------------------------#
+# This julia file creates an array of semi-classical amplitudes of the 4-dimensional EPRL frusta model used in https://arxiv.org/abs/2304.13058 #
+#-----------------------------------------------------------------------------------------------------------------------------------------------#
+
 using JLD, LinearAlgebra, Cuba, SparseArrays
-# Codes for the semi-classical amplitudes
+### Codes for the semi-classical amplitudes
 include("/home/ri47hud/codes/Spectral Dimension/basic_frusta.jl")
 include("/home/ri47hud/codes/Spectral Dimension/laplacians_v3.jl")
 include("/home/ri47hud/codes/Spectral Dimension/vertex_ampl.jl")

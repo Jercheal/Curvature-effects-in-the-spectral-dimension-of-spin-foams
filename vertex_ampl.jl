@@ -1,6 +1,10 @@
-######--- Conditions on the spins ---######
+#---------------------------------------------------------------------------------------------------------------------------#
+# This julia file contains the functions to generate the semi-classical amplitudes used in https://arxiv.org/abs/2304.13058 #
+#---------------------------------------------------------------------------------------------------------------------------#
 
-# SU2-recoupling condition #
+#----------------------------------------------
+
+### SU2-recoupling condition 
 
 function SU2_cond(j1::Float64, j2::Float64)
 
@@ -16,7 +20,9 @@ function SU2_cond(j1::Float64, j2::Float64)
     
 end
 
-# Riemannian EPRL-condition #
+#----------------------------------------------
+
+### Riemannian EPRL-condition 
 
 function EPRL_cond(j::Float64, gamma::Rational{Int64})
 
@@ -36,7 +42,9 @@ function EPRL_cond(j::Float64, gamma::Rational{Int64})
     
 end
 
-######--- Dressed vertex amplitude ---######
+#----------------------------------------------
+
+### Dressed vertex amplitude
 
 function Ampl_cont(alpha::Float64,G::Float64,γ::Float64,Lambda::Float64,j1::Float64,j2::Float64,j3::Float64)
 
@@ -49,7 +57,9 @@ function Ampl_cont(alpha::Float64,G::Float64,γ::Float64,Lambda::Float64,j1::Flo
     
 end
 
-# Dressed vertex amplitude with Riemannian EPRL-condition # 
+#----------------------------------------------
+
+### Dressed vertex amplitude with Riemannian EPRL-condition 
 
 function Ampl(alpha::Float64,G::Float64,γ::Float64,Lambda::Float64,j1::Float64,j2::Float64,j3::Float64)
 
@@ -116,11 +126,9 @@ function Ampl_resc_tensor(alpha::Float64,G::Float64,gamma::Float64,Lambda::Float
 
 end
 
+#----------------------------------------------
 
-
-######--- 1-periodic ---######
-
-# 1-periodic vectorized amplitude #
+### 1-periodic vectorized amplitude 
 
 function Ampl_vector(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 
@@ -140,9 +148,9 @@ function Ampl_vector(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j
 end
 
 
-######--- 2-periodic ---######
+#----------------------------------------------
 
-# 2-periodic amplitude #
+### 2-periodic amplitude 
 
 function Am16(alpha::Float64, G::Float64,γ::Float64,Lambda::Float64,
     jin::Float64, jmid::Float64, k1::Float64, k2::Float64)
@@ -188,7 +196,9 @@ function Am16_cont(alpha::Float64, G::Float64,γ::Float64,Lambda::Float64,
 
 end
 
-# 2-periodic vectorized amplitude #
+#----------------------------------------------
+
+### 2-periodic vectorized amplitude 
 
 function Am16_vector(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 
@@ -209,10 +219,9 @@ function Am16_vector(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j
     
 end
 
+#----------------------------------------------
 
-#######--- 3-periodic ---######
-
-# 3-periodic amplitude #
+### 3-periodic amplitude 
 
 function Am81(alpha::Float64, G::Float64,γ::Float64,Lambda::Float64, jin::Float64, j1::Float64,j2::Float64,
             k1::Float64, k2::Float64,k3::Float64)
@@ -243,7 +252,9 @@ function Am81(alpha::Float64, G::Float64,γ::Float64,Lambda::Float64, jin::Float
 
 end
 
-# 3-periodic vectorized amplitude #
+#----------------------------------------------
+
+### 3-periodic vectorized amplitude 
 
 function Am81_vector(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 

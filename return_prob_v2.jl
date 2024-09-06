@@ -1,6 +1,10 @@
-######--- 1-periodic ---######
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# This julia file contains the functions to compute the expectation value of the return probability for a given data set ret_prob. Used in https://arxiv.org/abs/2304.13058 #
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
-# 1-periodic partition function #
+#----------------------------------------------
+
+### 1-periodic partition function 
 
 function Z1(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 
@@ -9,7 +13,9 @@ function Z1(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Flo
     return res
 end
 
-# 1-periodic partition function with integration #
+#----------------------------------------------
+
+### 1-periodic partition function with integration 
 
 function Z1_int(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, jmin::Float64, jmax::Float64)
 
@@ -22,7 +28,9 @@ return res[1][1]
     
 end
 
-# Expectation value of 1-periodic return probability #
+#----------------------------------------------
+
+### Expectation value of 1-periodic return probability 
 
 function Expval_P1(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, return_prob1, j_min::Float64, j_max::Float64)
 
@@ -52,8 +60,9 @@ function Expval_P1_fast(dVAmp, return_prob1)
     
 end
 
+#----------------------------------------------
 
-# Expectation value of 1-periodic return probability with integration #
+### Expectation value of 1-periodic return probability with integration 
 
 function Expval_P1_int(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, jmin::Float64, jmax::Float64, tau::Float64)
 
@@ -70,9 +79,9 @@ function Expval_P1_int(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64,
     
 end
 
-######--- 2-periodic ---######
+#----------------------------------------------
 
-# 2-periodic partition function #
+### 2-periodic partition function 
 
 function Z2(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 
@@ -82,7 +91,9 @@ function Z2(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Flo
     
 end
 
-# Expectation value of 2-periodic return probability #
+#----------------------------------------------
+
+### Expectation value of 2-periodic return probability 
 
 function Expval_P2(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, return_prob2, j_min::Float64, j_max::Float64)
 
@@ -97,9 +108,9 @@ function Expval_P2(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, ret
 end
 
 
-######--- 3-periodic ---######
+#----------------------------------------------
 
-# 3-periodic partition function #
+### 3-periodic partition function #
 
 function Z3(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Float64, j_max::Float64)
 
@@ -109,7 +120,9 @@ function Z3(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, j_min::Flo
     
 end
 
-# Expectation value of 3-periodic return probability #
+#----------------------------------------------
+
+### Expectation value of 3-periodic return probability 
 
 function Expval_P3(alpha::Float64, G::Float64, γ::Float64, Lambda::Float64, return_prob3, j_min::Float64, j_max::Float64)
 

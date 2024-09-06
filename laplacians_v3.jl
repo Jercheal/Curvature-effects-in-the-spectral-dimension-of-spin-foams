@@ -1,6 +1,10 @@
-######--- 1-periodic ---######
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# This julia file contains a definition of the Laplace operator as well as functions that compute the return probability for an array of configurations, all being used in https://arxiv.org/abs/2304.13058 #
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
-# 1-periodic Laplacian and its spectrum #
+#----------------------------------------------
+
+### 1-periodic Laplacian and its spectrum 
 
 function spectrum_Laplace_1per_temp(j::Float64, k::Float64, L::Int64)
 
@@ -88,8 +92,9 @@ function return_probability_1_per_sum!(rp1, spec_t, spec_s, j::Float64, k::Float
     return
 end
 
+#----------------------------------------------
 
-# 1-periodic Classical return probability #
+### 1-periodic Classical return probability 
 
 function return_probability_1_per(jin::Float64,k1::Float64,tau::Float64)
 
@@ -127,7 +132,9 @@ function return_probability_1_per(jin::Float64,k1::Float64,tau::Float64)
 
 end
 
-# 1-periodic vectorized  classical return probability #
+#----------------------------------------------
+
+### 1-periodic vectorized  classical return probability 
 
 function rp1vec(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64)
 
@@ -166,7 +173,9 @@ function rp1vec(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64)
 
 end
 
-# Implement Riemannian EPRL-condition #
+#----------------------------------------------
+
+### Implement Riemannian EPRL-condition 
 
 function rp1vec_EPRL(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64, γ::Float64)
 
@@ -257,7 +266,9 @@ function rp1vec_EPRL_sum(tau_range::Vector{Float64}, j_min::Float64, j_max::Floa
 
 end
 
-# Restrict a 1-periodic return probability vector #
+#----------------------------------------------
+
+### Restrict a 1-periodic return probability vector 
 
 function nconvert1(n::Int64, Nspins::Int64)
 
@@ -300,9 +311,9 @@ function rp1_res(taus::Vector{Float64}, rp1::SparseMatrixCSC{Float64, Int64}, ga
 
 end
 
-######--- 2-periodic ---######
+#----------------------------------------------
 
-# 2-periodic Laplacian and its spectrum #
+### 2-periodic Laplacian and its spectrum 
 
 function Laplace_2per(jin::Float64,jmid::Float64,k1::Float64,k2::Float64,
     p::Float64,qx::Float64,qy::Float64,qz::Float64)
@@ -438,7 +449,9 @@ function spectrum_Laplace_2per_disc!(spec, jin::Float64,jmid::Float64,k1::Float6
 
 end
 
-# 2-periodic classical return probability #
+#----------------------------------------------
+
+### 2-periodic classical return probability 
 
 function return_probability_2_per(jin::Float64,jmid::Float64,k1::Float64,k2::Float64,tau::Float64, emin::Float64, emax::Float64)
 
@@ -507,9 +520,9 @@ function return_probability_2per_sum!(rp2, spec, jin::Float64, jmid::Float64, k1
     
 end
 
-# 2-periodic vectorized and distributed classical return probability
+#----------------------------------------------
 
-# Implement Riemannian EPRL-condition #
+### 2-periodic vectorized and distributed classical return probability
 
 function rp2vec_EPRL_sum(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64, γ::Float64, L::Int64)
 
@@ -693,7 +706,9 @@ function rp2vec_EPRL_int_partial(tau_range::Vector{Float64}, j_min::Float64, j_m
 
 end
 
-# Restrict a 2-periodic return probability vector #
+#----------------------------------------------
+
+### Restrict a 2-periodic return probability vector #
 
 function nconvert2(n::Int64, Nspins::Int64)
 
@@ -719,9 +734,9 @@ function rp2_res(rp2::Array{Float64, 2}, j_min::Float64, j_max::Float64, j_min_n
 
 end
 
-######--- 3-periodic ---######
+#----------------------------------------------
 
-# 3-periodic Laplacian #
+### 3-periodic Laplacian 
 
 function Laplace_3per(jin::Float64, j1::Float64, j2::Float64, k1::Float64, k2::Float64, k3::Float64,
     p::Float64,qx::Float64,qy::Float64,qz::Float64)
@@ -781,7 +796,9 @@ function Laplace_3per(jin::Float64, j1::Float64, j2::Float64, k1::Float64, k2::F
 
 end
 
-# 3-periodic classical return probability #
+#----------------------------------------------
+
+### 3-periodic classical return probability 
 
 function return_probability_3_per(jin::Float64, j1::Float64, j2::Float64,
     k1::Float64, k2::Float64, k3::Float64,tau::Float64, emin::Float64, emax::Float64)
@@ -806,7 +823,9 @@ function return_probability_3_per(jin::Float64, j1::Float64, j2::Float64,
 
 end
 
-# 3-periodic vectorized and distributed classical return probability #
+#----------------------------------------------
+
+### 3-periodic vectorized and distributed classical return probability 
 
 function rp3vec(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64, emin::Float64, emax::Float64)
 
@@ -854,7 +873,9 @@ function rp3vec(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64, emin
 
 end
 
-# Implement Riemannian EPRL-condition #
+#----------------------------------------------
+
+### Implement Riemannian EPRL-condition 
 
 
 function rp3vec_EPRL(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64, γ::Float64, emin::Float64, emax::Float64)
@@ -892,9 +913,9 @@ function rp3vec_EPRL(tau_range::Vector{Float64}, j_min::Float64, j_max::Float64,
 
 end
 
+#----------------------------------------------
 
-
-# Restrict a 3-periodic return probability vector #
+### Restrict a 3-periodic return probability vector 
 
 function nconvert3(n::Int64, Nspins::Int64)
 
